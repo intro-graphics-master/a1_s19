@@ -2,11 +2,11 @@
 
 ### Step 1:  Begin with these steps to repository setup:
 
-1. By now you have followed the link to create your assignment repository. Please use this link once as it will create a repository.  We will not check for submissions if you use it multiple times. The repository name should look like **a1-githubusername**. Any others will get removed.
+1. By now you have followed the link to create your assignment repository. Please use this link once as it will create a repository on GitHub.com.  We will not check for submissions if you use it multiple times. The repository name should look like **a1-githubusername**. Any others will get removed.
 
 2. As part of this process you will also receive an invite from GitHub to join the class organization which is where more of your class assignments and term project will live.
 
-3. Once your repository is created you will have a copy of the assignment code in your GitHub repository. Find the big green button on the page that says "Clone or download". Now you can clone the repository onto your local computer.  There are three ways to do this:
+3. Once your repository is created you will have a copy of the assignment code in your GitHub.com repository. Find the big green button on the page that says "Clone or download". Now you can clone the repository onto your local computer.  There are three ways to do this:
 
 - The easy way (not for extra credit): Click that green button and select "Download ZIP".
 
