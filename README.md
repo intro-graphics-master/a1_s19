@@ -15,7 +15,7 @@
 - The hard way:  Just use git (the command line) rather than GitHub Desktop if you are comfortable with that.  Be sure to setup your local git environment and ssh keys to work with the GitHub site, by following their instructions. Use the following command. Be sure do execute this command from the directory you wish to locate your work.
 
 ```bash
-$ git clone git@github.com:ucla-fa18-cs174a/a1-githubusername.git
+$ git clone git@github.com:intro-graphics-master/a1-githubusername.git
 ```
 
 4. You can now follow the remaining steps of the assignment.
@@ -154,7 +154,7 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
 
 3. The code is divided up into JavaScript classes.  The one at the top of the file constructs the geometry of a triangle.  Let's edit it to become a square.
 
-   ![code](docs/image-18.png)
+   ![code](docs/image-18.png?)
 
 4. On line 13, add the following three items to the JavaScript array, which is all the text enclosed by square brackets [ ].  Add a comma to separate from previous items in the array.
    * Vec.of(0,1,0), Vec.of(1,0,0), Vec.of(1,1,0)
@@ -189,6 +189,3 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
 3. Once you have made the minor edit to your local files (from the steps above), all you have left to do is push them back to the GitHub repo you made in step 1.  This is easy using GitHub Desktop's interface.  Visit your repo page online (accessible from the GitHub Desktop menus) and check the file contents to verify that your edit is there.
 
 In case you decide you want to use plain git instead on the command line, here are instructions for that too: https://pastebin.com/YQimN4Mn
-
-
-
