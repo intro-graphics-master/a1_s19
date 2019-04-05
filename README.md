@@ -4,7 +4,7 @@
 
 1. By now you have followed the link to create your assignment repository. Please use this link only once as it will create a repository on GitHub.com.  We will not check for submissions if you use it multiple times. The repository name should look like **a1-githubusername**. Any others will get removed.
 
-2. As part of this process you will also receive an invite from GitHub to join the class organization which is where more of your class assignments and term project will live.
+2. As part of this process you will also receive an invite from GitHub to join the class organization which is where some more of your class assignments and term project will live.
 
 3. Once your repository is created you will have a copy of the assignment code in your GitHub.com repository. Find the big green button on the page that says "Clone or download". Now you can clone the repository onto your local computer.  There are three ways to do this:
 
@@ -26,7 +26,7 @@ $ git clone git@github.com:intro-graphics-master/a1-githubusername.git
 
    ![icons](docs/image-01.png?)
 
-2. You should see the file index.html in your folder.  You can already try clicking that open to see the code run on your machine... mostly.  This is a start; you'll see an animation.  But this isn't good enough.  Your animation is still unable to load local files (texture images, sounds, models) out of your own file-system, due to its safety protections against your web browser.
+2. You should see the file index.html in your folder.  You can already try clicking that open to see the code run on your machine... mostly.  This is a start; you'll see an animation.  But this isn't good enough.  Your animation is still unable to load local files (texture images, sounds, models) out of your own file-system, due to your computer's safety protections against your web browser.
 
    ![triangle](docs/image-02.png)
 
