@@ -156,10 +156,10 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
 
    ![code](docs/image-18.png?)
 
-4. On line 13, add the following three items to the JavaScript array, which is all the text enclosed by square brackets [ ].  Add a comma to separate from previous items in the array.
+4. On line 14, add the following three items to the JavaScript array, which is all the text enclosed by square brackets [ ].  Add a comma to separate from previous items in the array.
    * Vec.of(0,1,0), Vec.of(1,0,0), Vec.of(1,1,0)
 
-5. On line 14, add the following three items to the JavaScript array:
+5. On line 15, add the following three items to the JavaScript array:
    * Color.of(0,0,1,1), Color.of(0,1,0,1), Color.of(1,1,0,1)
 
 6. Save the file, and reload the page (using Ctrl+Shift+r for Windows, Cmd+Shift+r for Mac).  Switch back to look at your web page window.  The triangle should be a square now, because you just attached a second triangle to it.  If so, your edit worked and your file is saved.  If not, check for green dots and fix it as per above.
