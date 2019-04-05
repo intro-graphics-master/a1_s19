@@ -24,7 +24,7 @@ $ git clone git@github.com:intro-graphics-master/a1-githubusername.git
 
 1. Go to your folder.
 
-   ![icons](docs/image-01.png)
+   ![icons](docs/image-01.png?)
 
 2. You should see the file index.html in your folder.  You can already try clicking that open to see the code run on your machine... mostly.  This is a start; you'll see an animation.  But this isn't good enough.  Your animation is still unable to load local files (texture images, sounds, models) out of your own file-system, due to its safety protections against your web browser.
 
@@ -77,7 +77,7 @@ Unfortunately, web developers in practice have to do that fake server thing pret
 
 7. Without leaving the "Sources" outer tab, look at the navigator panel on the left.  This might be collapsed in the upper corner.  Regardless open the "Page" inner tab underneath it.
 
-   ![navigator](docs/image-09.png)
+   ![navigator](docs/image-09.png?)
 
 8. You should see all the files you downloaded from GitHub here.  Click them open to make sure you can see the code.  Now you can read it all here.
 
@@ -106,7 +106,7 @@ Either way this will complete the mapping between your real local files and the 
    
    * If this doesn't happen as described, try to find help on setting your local folder as a workspace.
 
-     ![url bar](docs/image-14.png)
+     ![url bar](docs/image-14.png?)
 
 3. Observe the little green dots next to each file in the "Filesystem" subtab.  These green dots verify that your Chrome has matched your fake server to your local files.
 
@@ -148,7 +148,7 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
 
 1. With our animation running in Chrome, with DevTools still open to the Sources tab.  Open the file "main-scene.js".  This is under the "Filesystem" tab of the navigator panel, which might be collapsed in the upper corner.
 
-   ![code](docs/image-17.png)
+   ![code](docs/image-17.png?)
 
 2. If there's no green dot next to  "main-scene.js", fix it as described above.
 
