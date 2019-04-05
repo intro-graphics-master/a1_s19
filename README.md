@@ -154,7 +154,7 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
 
 3. The code is divided up into JavaScript classes.  The one at the top of the file constructs the geometry of a triangle.  Let's edit it to become a square.
 
-   ![code](docs/image-18.png?)
+   ![code](docs/image-18.png)
 
 4. On line 14, add the following three items to the JavaScript array, which is all the text enclosed by square brackets [ ].  Add a comma to separate from previous items in the array.
    * Vec.of(0,1,0), Vec.of(1,0,0), Vec.of(1,1,0)
