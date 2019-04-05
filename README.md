@@ -10,7 +10,7 @@
 
 - The easy way (not for extra credit): Click that green button and select "Download ZIP".
 
-- The medium way:  (extra credit) Install GitHub Desktop on your computer, then click that green button on your repo and select "Open in Desktop".
+- The medium way:  (extra credit) Install GitHub Desktop on your computer, then click that green button on your repo and select "Open in Desktop".  See the extra credit section at the bottom of this assignment.
 
 - The hard way:  Just use git (the command line) rather than GitHub Desktop if you are comfortable with that.  Be sure to setup your local git environment and ssh keys to work with the GitHub site, by following their instructions. Use the following command. Be sure do execute this command from the directory you wish to locate your work.
 
