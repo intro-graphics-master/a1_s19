@@ -2,7 +2,7 @@
 
 ### Step 1:  Begin with these steps to repository setup:
 
-1. By now you have followed the link to create your assignment repository at https://classroom.github.com/a/wamrBrAf. Please use this link once as it will create a repository.  We will not check for submissions if you use it multiple times. The repository name should look like **a1-githubusername**. Any others will get removed.
+1. By now you have followed the link to create your assignment repository. Please use this link once as it will create a repository.  We will not check for submissions if you use it multiple times. The repository name should look like **a1-githubusername**. Any others will get removed.
 
 2. As part of this process you will also receive an invite from GitHub to join the class organization which is where more of your class assignments and term project will live.
 
