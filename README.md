@@ -26,9 +26,9 @@ $ git clone git@github.com:intro-graphics-master/a1-githubusername.git
 
    ![icons](docs/image-01.png?)
 
-2. You should see the file index.html in your folder.  You can already try clicking that open to see the code run on your machine... mostly.  This is a start; you'll see an animation.  But this isn't good enough.  Your animation is still unable to load local files (texture images, sounds, models) out of your own file-system, due to your computer's safety protections against your web browser.
+2. You should see the file index.html in your folder.  You can already try clicking that open to see the code run on your machine... it won't work at all.  (Note:  Previously this step said that it will appear to work and that a triangle will show up.  Thankfully, this misleading result is no longer possible.  We've found that one of our new code changes makes sure it properly fails all the way if opened this way).
 
-   ![triangle](docs/image-02.png)
+The problem is that your animation is unable to load local files (scripts, texture images, sounds, models) out of your own file-system, due to your computer's safety protections against your web browser.
 
 3. Run a fake server. which lacks those security protections.  Do this by opening the file we gave you called "host" -  "host.bat" if you're Windows, "host.command" if your Mac. On Windows you can just double click the file open.
    * **On Mac, you might get a security warning instead if you double-click.**  Instead, right click the files (that's correct - right click.  It matters how you click!)  Then choose Open, or you can go into System Preferences/Security & Privacy/General and click 'Open Anyway'. Let us know if it still doesn't work.
