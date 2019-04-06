@@ -26,7 +26,7 @@ $ git clone git@github.com:intro-graphics-master/a1-githubusername.git
 
    ![icons](docs/image-01.png?)
 
-2. You should see the file index.html in your folder.  You can already try clicking that open to see the code run on your machine... it won't work at all.  (Note:  Previously this step said that it will appear to work and that a triangle will show up.  Thankfully, this misleading result is no longer possible.  We've found that one of our new code changes makes sure it properly fails all the way if opened this way).
+2. You should see the file index.html in your folder.  You can already try clicking that document open to view it and attempt to run the code on your machine... but it won't work at all.  (Note:  Previously this step said that it will appear to work and that a triangle will show up.  Thankfully, this misleading result is no longer possible.  We've found that one of our new code changes makes sure it properly fails all the way if opened this way).
 
 The problem is that your animation is unable to load local files (scripts, texture images, sounds, models) out of your own file-system, due to your computer's safety protections against your web browser.
 
