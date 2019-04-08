@@ -52,6 +52,8 @@ That assumes that step 5's message said port 8000 - otherwise change the number 
 
    ![triangle](docs/image-02.png)
 
+Note:  If it does not show up, and if the "console" tab of DevTools shows an error about MIME types, you're going to need to use a different host.bat or host.command file specially made for this.  You can find that on Piazza post 13 (https://piazza.com/class/jtq98w8rgyg510?cid=13).
+   
 Unfortunately, web developers in practice have to do that fake server thing pretty often to be able to work on their files locally. **Keep the .bat or .command program open while you work.**
 
 
@@ -162,7 +164,7 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
 5. On line 15, add the following three items to the JavaScript array:
    * Color.of(0,0,1,1), Color.of(0,1,0,1), Color.of(1,1,0,1)
 
-6. Save the file, and reload the page (using Ctrl+Shift+r for Windows, Cmd+Shift+r for Mac).  Switch back to look at your web page window.  The triangle should be a square now, because you just attached a second triangle to it.  If so, your edit worked and your file is saved.  If not, check for green dots and fix it as per above.
+6. Save the file (Ctrl+s or Cmd+s), verify the asterisk next to your filename for unsaved changes goes away, and reload the page (using Ctrl+Shift+r for Windows, Cmd+Shift+r for Mac).  Switch back to look at your web page window.  The triangle should be a square now, because you just attached a second triangle to it.  If so, your edit worked and your file is saved.  If not, check for green dots and fix it as per above.
 
    ![square](docs/image-19.png)
 
