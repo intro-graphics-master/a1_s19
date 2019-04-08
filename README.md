@@ -52,9 +52,9 @@ That assumes that step 5's message said port 8000 - otherwise change the number 
 
    ![triangle](docs/image-02.png)
 
-Note:  If it does not show up, and if the "console" tab of DevTools shows an error about MIME types, you're going to need to use a different host.bat or host.command file specially made for this.  You can find that on Piazza post 13 (https://piazza.com/class/jtq98w8rgyg510?cid=13).
+  Note:  If it does not show up, and if the "console" tab of DevTools shows an error about MIME types, you're going to need to use a different host.bat or host.command file specially made for this.  You can find that on Piazza post 13 (https://piazza.com/class/jtq98w8rgyg510?cid=13).
    
-Unfortunately, web developers in practice have to do that fake server thing pretty often to be able to work on their files locally. **Keep the .bat or .command program open while you work.**
+9. Unfortunately, web developers in practice have to do that fake server thing pretty often to be able to work on their files locally. **Keep the .bat or .command program open while you work.**
 
 
 ### Step 3:  Continue the next steps to begin viewing the code.  
