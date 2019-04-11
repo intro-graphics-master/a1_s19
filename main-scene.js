@@ -11,7 +11,7 @@ class Minimal_Shape extends tiny.Vertex_Buffer    // The simplest possible Shape
 {                                                 // containing two values: a 3D position and a color.
   constructor() 
     { super( "position", "color" );
-      this.arrays.position = [ Vec.of(0,0,0), Vec.of(1,0,0), Vec.of(0,1,0) ];   // Describe the where the points of a triangle are in space.
+      this.arrays.position = [ Vec.of(0,0,0), Vec.of(1,0,0), Vec.of(0,1,0) ];   // Describe where the points of a triangle are in space.
       this.arrays.color    = [ Color.of(1,0,0,1), Color.of(0,1,0,1), Color.of(0,0,1,1) ];   // Besides a position, vertices also have a color.      
     }
 }
