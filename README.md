@@ -229,7 +229,8 @@ Another benefit of Git is that it can very, very seamlessly swap between multipl
 
 It turns out it's incredibly useful to do that.  You'll be able to start new "branches" if you're not sure you want to try something on your code.  Branches are very cheap to make and you can have lots of them, one for every feature you'd like to try implementing.  These allow you to experiment with and completely break your code while you try adding in a new piece or try doing a total redesign, yet being able to immediately switch back to a working version when you want to work on a different piece instead.  This coding practice is called "branch per feature" and it is very well regarded (example: https://dev.acquia.com/blog/pragmatic-guide-branch-feature-git-branching-strategy).
 
-#### Warning for late in the course: Merging code with your teammates
+### Warning
+#### for late in the course: Merging code with your teammates
 
  One thing that GitHub Desktop does not make obvious is how to merge edits from different branches.  When you try to merge code with your teammates, you might get an error message stating that there are "merge conflicts".  That's expected.  We won't say much about merge conflicts (refer to the tutorial above), but be aware of an important pitfall to watch out for:
  
