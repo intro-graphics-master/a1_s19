@@ -12,15 +12,15 @@ If you're coming from a C++ background, you might find [this slide set](https://
 
 2. As part of this process you will also receive an invite from GitHub to join the class organization which is where some more of your class assignments and term project will live.
 
-3. Once your repository is created you will have a copy of the assignment code in your GitHub.com repository. Find the big green button on the page that says "Clone or download". Now you can clone the repository onto your local computer.  There are three ways to do this:
+3. Once your repository is created you will have a copy of the assignment code in your GitHub.com repository.  That page is probably what you're reading right now.  Find the big green button on top of the page (this page) that says "Clone or download". Now you can clone the repository onto your local computer.  There are three ways to do this:
 
 * The easy way (not for extra credit): Click that green button and select "Download ZIP".
 
-* The medium way:  (extra credit) Click that green button on your repo and select "Open in Desktop".  Let it download the program "GitHub Desktop" for you if you don't already have it, and then the "Open in Desktop" button should open in that program.
+* The medium way:  (extra credit) Click that green button on your repository and select "Open in Desktop".  Let it download the program "GitHub Desktop" for you if you don't already have it, and then the "Open in Desktop" button should open in that program.
 
-   * If it works, this entire repo will be copied to a folder on your computer in a way that Git can manage.  The extra credit section at the bottom of this assignment will assume that you've done this part.
+   * If it works, this entire repository will be copied to a folder on your computer in a way that Git can manage.  The extra credit section at the bottom of this assignment will assume that you've done this part.
 
-   * Git is a software version control tool that comes from the linux world. It is primarily a command line tool, but GitHub Desktop provides a nice visual experience for it.  If you have trouble setting up GitHub Desktop, [Professor Friedman's tutorial on it](https://docs.google.com/document/d/e/2PACX-1vQB9LOnRJ5MdhIClifZwsT9UmFmz3EpP0AsI1oEjJ7gqshA7nqbEsUtzgRqyoFAbCBUzoe0lLtEelMD/pub) might help.
+   * Git is a software version control tool that comes from the Linux world. It is primarily a command line tool, but GitHub Desktop provides a nice visual experience for it.  If you have trouble setting up GitHub Desktop, [Professor Friedman's tutorial on it](https://docs.google.com/document/d/e/2PACX-1vQB9LOnRJ5MdhIClifZwsT9UmFmz3EpP0AsI1oEjJ7gqshA7nqbEsUtzgRqyoFAbCBUzoe0lLtEelMD/pub) might help.
 
 * The hard way:  Just use git (the command line) rather than GitHub Desktop if you are comfortable with that.  Be sure to setup your local git environment and ssh keys to work with the GitHub site, by following their instructions. Use the following command. Be sure do execute this command from the directory you wish to locate your work.
 
@@ -213,7 +213,7 @@ Remember to visit Appendix 2 below (using a debugger) to complete this tutorial!
 
 1. This bonus step requires that you actually got GitHub Desktop (or just plain git) set up correctly to talk to your local files.  Do that.  Use the instructions provided by GitHub for setting up GitHub Desktop, and use Google for any help.
 
-2. Once you have made the minor edit to your local files (from the steps above), all you have left to do is push them back to the GitHub repo you made in step 1.  This is easy using GitHub Desktop's interface.  Remember that commiting your local files is not enough; you must also push them.  Visit your repo page online (accessible from the GitHub Desktop menus) and check the file contents to verify that your edit is there.
+2. Once you have made the minor edit to your local files (from the steps above), all you have left to do is push them back to the GitHub repo you made in step 1.  This is easy using GitHub Desktop's interface.  Remember that committing your local files is not enough; you must also push them.  Visit your repository page online (accessible from the GitHub Desktop menus and keyboard shortcuts) and check the file contents to verify that your edit is there.
 
 In case you decide you want to use plain git instead on the command line, here are instructions for that too: https://pastebin.com/YQimN4Mn
 
@@ -235,7 +235,7 @@ It turns out it's incredibly useful to do that.  You'll be able to start new "br
  
  GitHub Desktop seems to have a bug.  To fix the merge conflict, GitHub Desktop might ask you to select an editor.  It doesn't always let you select one though, and seemingly refuses to merge branches until there is one.  If you experience this later on in the course, be aware that the trick is to just X out the window that says the merge couldn't be completed.  
  
- Now, you are free to edit your files anyway!  Your files have been merged together plus markup inserted for every "merge conflict", and it permits you to manually go in with your favorite editor (like Chrome) and delete this markup, along with the conflicting code you want to discard.  Once you've done that, the merged worked and you can commit your code.
+ Now, you are free to edit your files anyway!  Your files have been merged together plus markup inserted for every "merge conflict", and it permits you to manually go in with your favorite editor (like Chrome) and delete this markup, along with the conflicting code you want to discard.  Once you've done that, the merge worked and you can commit your code.
  
 
 ### Appendix 2:  Using a debugger
