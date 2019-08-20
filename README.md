@@ -64,10 +64,10 @@ Most importantly, you will use the DevTools for debugging your program -- runnin
 
 These instructions will show you use the same program for editing and reading JavaScript as you use for running it.  Just Google Chrome!  We won't need an external editor.  This isn't usually recommended because Chrome's editor doesn't support very many things, but here's why we're doing it anyway:
 
--To show that Chrome by itself can do it.
--To give a more focused tour of Chrome DevTools.
--To make sure the DevTools window is always open while editing
--To make it harder for JavaScript newcomers to ignore or close the debugger panel, which is crucial for dealing with errors.
+* To show that Chrome by itself can do it.
+* To give a more focused tour of Chrome DevTools.
+* To make sure the DevTools window is always open while editing
+* To make it harder for JavaScript newcomers to ignore or close the debugger panel, which is crucial for dealing with errors.
 
 In reality, most professional JavaScript programmers right now use external text editors like the immensely popular VSCode to manage JavaScript projects.  Unlike Chrome's DevTools, VSCode supports plugins.  With plugins, VSCode can automatically do the process we just did in step 2 (setting up a Python host, and launching our .html page).  Other plugins let VSCode directly interact with our browser debugger, so we wouldn't be missing that either.  Others help you type better JavaScript.  You can tell that VSCode offers a lot more than Chrome by itself; it just has a slightly higher setup cost and this tutorial is ONLY about learning where to find things in web browser tools.
 
