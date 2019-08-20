@@ -4,7 +4,7 @@
 
 ### Preliminary Step: Learning JavaScript
 
-If you're coming from a C++ background, you might find [this slide set](https://docs.google.com/presentation/d/e/2PACX-1vSVw1BycQjqBWq_7tbkDE9N8WJXZAketdkrtnL3WkSVj2oM4PP8P05L1dQ8pdxwBkkhXqJGau3k7yCA/pub?start=false&loop=true&delayms=3000&slide=id.g5584bc06c5_0_50) useful.  It points out all the key differences to be aware of in your transition to JavaScript.
+If you're coming from a C++ background, you might find [this slide set](https://docs.google.com/presentation/d/e/2PACX-1vSVw1BycQjqBWq_7tbkDE9N8WJXZAketdkrtnL3WkSVj2oM4PP8P05L1dQ8pdxwBkkhXqJGau3k7yCA/pub?start=false&loop=true&delayms=3000) useful.  It points out all the key differences to be aware of in your transition to JavaScript.
 
 ### Step 1:  Begin with these steps to repository setup:
 
