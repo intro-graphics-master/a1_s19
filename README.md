@@ -150,10 +150,10 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
 2. Find and try each of the following code editing commands once. They're found in that DevTools Sources tab.
    * Block indent / unindent (Tab and Shift+Tab)
    * Block comment / uncomment (Ctrl+/ or Cmd+/)
-     ** For both of the above bullet points, try it on multiple highlighted lines at once.
+     * For both of the above bullet points, try it on multiple highlighted lines at once.
    * Zoom in/out while reading
-     ** Hold down Ctrl (Windows) or Cmd (Mac) and then press plus, minus, or zero to adjust.
-     ** Use this fit a comfortable amount of code on-screen for you to read at once.
+     * Hold down Ctrl (Windows) or Cmd (Mac) and then press plus, minus, or zero to adjust.
+     * Use this fit a comfortable amount of code on-screen for you to read at once.
    * find (Ctrl+f or Cmd+f)
    * find-and-replace
    
