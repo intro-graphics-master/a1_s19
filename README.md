@@ -2,6 +2,10 @@
 
 ## Becoming a JavaScript Programmer who knows how to use DevTools
 
+### Preliminary Step: Learning JavaScript
+
+If you're coming from a C++ background, you might find [this slide set](https://docs.google.com/presentation/d/e/2PACX-1vSVw1BycQjqBWq_7tbkDE9N8WJXZAketdkrtnL3WkSVj2oM4PP8P05L1dQ8pdxwBkkhXqJGau3k7yCA/pub?start=false&loop=true&delayms=3000&slide=id.g5584bc06c5_0_50) useful.  It points out all the key differences to be aware of in your transition to JavaScript.
+
 ### Step 1:  Begin with these steps to repository setup:
 
 1. By now you have followed the link to create your assignment repository. Please use this link only once as it will create a repository on GitHub.com.  We will not check for submissions if you use it multiple times. The repository name should look like **a1-githubusername**. Any others will get removed.
@@ -58,7 +62,7 @@ That assumes that step 5's message said port 8000 - otherwise change the number 
 
 9. It's running now!  Even actual web developer jobs really do involve keeping this kind of fake server open to be able to work on files locally. **Keep that .bat or .command program open while you work.**
 
-### Part II: Editing a JavaScript Project
+## Part II: Editing a JavaScript Project
 
 We can now run our project, and we could also edit any of its files because they're in plain text.  That type of editing is not enough for this class, though, because fixing errors in a graphics program is so hard that it warrants some more tools.
 
@@ -201,6 +205,8 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
 
 1.  Zip up all your files (except for the "docs" folder, and hidden ".git" folder) in a single .zip file, which you will name after your student UID.  Turn in your .zip on CCLE, where we will add a place to do so.  Always keep your .zip files small for us; please do not select the (sometimes huge) .git folder for inclusion in it!
 
+Remember to visit Appendix 2 below (using a debugger) to complete this tutorial!  Only then can you get the full value out of using DevTools, like real JavaScript developers do.
+
 #### Step 8 (Extra credit):  Continue the next steps to turn in assignment 1 on GitHub:
 
 (10 bonus points)
@@ -210,3 +216,34 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
 2. Once you have made the minor edit to your local files (from the steps above), all you have left to do is push them back to the GitHub repo you made in step 1.  This is easy using GitHub Desktop's interface.  Remember that commiting your local files is not enough; you must also push them.  Visit your repo page online (accessible from the GitHub Desktop menus) and check the file contents to verify that your edit is there.
 
 In case you decide you want to use plain git instead on the command line, here are instructions for that too: https://pastebin.com/YQimN4Mn
+
+### Appendix 1:  Getting good at git
+
+New to Git?  Want to understand what it does really, really well?
+
+Start reading this [tutorial](https://git-scm.com/book/en/v2), at least through section 1.3.  It's very well written.  You only need a superficial understanding of the Git system to be able to use GitHub Desktop, which gives you nice easy buttons to do everything instead of command line tools.  Once you know the basics of what Git is (by reading at least that far), you're ready to try using this visual version of it and you'll be relieved at how little there is to it.
+
+The benefits of using git for your development are many:  You'll be able to work on the same code as your teammates, you'll be able to easily identify what each teammate changed vs. what stayed the same, and you'll be able to view and roll back your code's history.
+
+Another benefit of Git is that it can very, very seamlessly swap between multiple versions of the same code.  You select your alternate versions from a drop down, and immediately your files change in place to the other versions, right in your folder, even if they're not the same files at all.  You don't even have to close your program to do it, you can just keep running it and hit reload and suddenly your code is different!  This is breathtaking the first time you try it.
+
+It turns out it's incredibly useful to do that.  You'll be able to start new "branches" if you're not sure you want to try something on your code.  Branches are very cheap to make and you can have lots of them, one for every feature you'd like to try implementing.  These allow you to experiment with and completely break your code while you try adding in a new piece or try doing a total redesign, yet being able to immediately switch back to a working version when you want to work on a different piece instead.  This coding practice is called "branch per feature" and it is very well regarded (example: https://dev.acquia.com/blog/pragmatic-guide-branch-feature-git-branching-strategy).
+
+#### Warning for late in the course: Merging code with your teammates
+
+ One thing that GitHub Desktop does not make obvious is how to merge edits from different branches.  When you try to merge code with your teammates, you might get an error message stating that there are "merge conflicts".  That's expected.  We won't say much about merge conflicts (refer to the tutorial above), but be aware of an important pitfall to watch out for:
+ 
+ GitHub Desktop seems to have a bug.  To fix the merge conflict, GitHub Desktop might ask you to select an editor.  It doesn't always let you select one though, and seemingly refuses to merge branches until there is one.  If you experience this later on in the course, be aware that the trick is to just X out the window that says the merge couldn't be completed.  
+ 
+ Now, you are free to edit your files anyway!  Your files have been merged together plus markup inserted for every "merge conflict", and it permits you to manually go in with your favorite editor (like Chrome) and delete this markup, along with the conflicting code you want to discard.  Once you've done that, the merged worked and you can commit your code.
+ 
+
+### Appendix 2:  Using a debugger
+
+#### When your code isn't working
+
+Lastly, the part we've been building up to, using a JavaScript debugger while you code!
+
+This part is so important that we have broken it off into another document so you can refer to it repeatedly during your more difficult course projects.  Visit it here:
+
+https://docs.google.com/document/d/e/2PACX-1vSi14Mb-_6qLN7wVA4-4NxqYR-3qHLy7ndjB2G0Ba6TCYHn_KGmrPbu-fCDtHkv9QcGBNqLUUdT6fu1/pub
