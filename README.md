@@ -20,18 +20,16 @@ $ git clone git@github.com:intro-graphics-master/a1-githubusername.git
 
 4. You can now follow the remaining steps of the assignment.
 
-### Step 2:  Now follow these steps to run and modify your project:  
+### Step 2:  Now follow these steps to run and modify your project:
 
 1. Go to your folder.
 
    ![icons](docs/image-01.png?)
 
-2. You should see the file index.html in your folder.  You can already try clicking that document open to view it and attempt to run the code on your machine... but it won't work at all.  (Note:  Previously this step said that it will appear to work and that a triangle will show up.  Thankfully, this misleading result is no longer possible.  We've found that one of our new code changes makes sure it properly fails all the way if opened this way).
-
-The problem is that your animation is unable to load local files (scripts, texture images, sounds, models) out of your own file-system, due to your computer's safety protections against your web browser.
+2. You should see the file index.html in your folder.  That's the executable.  If you have worked with HTML before, you might recall that simply double clicking .html files opens them in a web browser and sometimes displays a working document.  That won't work with this file, because our graphics programs will also depend on other files (JavaScript modules, image files, sound files, 3D models, etc.)  Your web browser protects your computer by refusing to look into your local file system, so we will have to trick it into thinking it is looking at a remote file system (a server) instead.
 
 3. Run a fake server. which lacks those security protections.  Do this by opening the file we gave you called "host" -  "host.bat" if you're Windows, "host.command" if your Mac. On Windows you can just double click the file open.
-   * **On Mac, you might get a security warning instead if you double-click.**  Instead, right click the files (that's correct - right click.  It matters how you click!)  Then choose Open, or you can go into System Preferences/Security & Privacy/General and click 'Open Anyway'. Let us know if it still doesn't work.
+   * **On Mac, you might get a security warning if you double-click.**  Instead, right click the files (that's correct - right click.  It matters how you click!)  Then choose Open, or you can go into System Preferences/Security & Privacy/General and click 'Open Anyway'. Let us know if it still doesn't work.
 
    ![dialog](docs/image-03.png)
 
@@ -41,25 +39,41 @@ The problem is that your animation is unable to load local files (scripts, textu
 
 5. Now you're hosting. Keep that window open.
 
-6. Open a new window of Google Chrome.  Download it first if needed.
+6. Open a new window of the Google Chrome web browser.  Download it if necessary.
 
    ![url bar](docs/image-05.png)
 
-7. Navigate Chrome to the url http://localhost:8000/
+7. Navigate the browser to the url http://localhost:8000/
 That assumes that step 5's message said port 8000 - otherwise change the number in the URL to match.
 
 8. Observe that your project shows up at this new URL.  That's where you'll access it from now on.
 
    ![triangle](docs/image-02.png)
 
-  Note:  If it does not show up, and if the "console" tab of DevTools shows an error about MIME types, you're going to need to use a different host.bat or host.command file specially made for this.  You can find that on Piazza post 13 (https://piazza.com/class/jtq98w8rgyg510?cid=13).
-   
-9. Unfortunately, web developers in practice have to do that fake server thing pretty often to be able to work on their files locally. **Keep the .bat or .command program open while you work.**
+9. It's running now!  Even actual web developer jobs really do involve keeping this kind of fake server open to be able to work on files locally. **Keep that .bat or .command program open while you work.**
 
+### Part II: Editing a JavaScript Project
+
+We can now run our project, and we could also edit any of its files because they're in plain text.  That type of editing is not enough for this class, though, because fixing errors in a graphics program is so hard that it warrants some more tools.
+
+The rest of these instructions will focus on the web browser Google Chrome.  We use Chrome instead of Firefox because it has all the features we need and there's only room to cover one web browser.
+
+The focus on a web browser is because these instructions assume that you have never used a browser's "developer tools" (DevTools) before, and need help finding all of their features.
+
+Most importantly, you will use the DevTools for debugging your program -- running it in a way that reports what is inside of each JavaScript variable so that your errors are much easier to understand.  Debuggers give you all of the special tools like breakpoints, single-stepping, the call stack, and other features you may have found in C++ environments like Visual Studio or XCode.  In graphics, you will need all the debugging tools you can get, because otherwise the default failure mode of a graphics program would be an unhelpful blank screen.
+
+These instructions will show you use the same program for editing and reading JavaScript as you use for running it.  Just Google Chrome!  We won't need an external editor.  This isn't usually recommended because Chrome's editor doesn't support very many things, but here's why we're doing it anyway:
+
+-To show that Chrome by itself can do it.
+-To give a more focused tour of Chrome DevTools.
+-To make sure the DevTools window is always open while editing
+-To make it harder for JavaScript newcomers to ignore or close the debugger panel, which is crucial for dealing with errors.
+
+In reality, most professional JavaScript programmers right now use external text editors like the immensely popular VSCode to manage JavaScript projects.  Unlike Chrome's DevTools, VSCode supports plugins.  With plugins, VSCode can automatically do the process we just did in step 2 (setting up a Python host, and launching our .html page).  Other plugins let VSCode directly interact with our browser debugger, so we wouldn't be missing that either.  Others help you type better JavaScript.  You can tell that VSCode offers a lot more than Chrome by itself; it just has a slightly higher setup cost and this tutorial is ONLY about learning where to find things in web browser tools.
 
 ### Step 3:  Continue the next steps to begin viewing the code.  
 
-1. Although any text editor will work on our files, for this class you'll need to use the editor inside of Chrome, because of its debugging tools.  
+1. Let's find the text editor inside of Chrome. 
 
 2. Resume with the open Chrome window from the previous step 8.
 
@@ -73,11 +87,11 @@ That assumes that step 5's message said port 8000 - otherwise change the number 
 
 5. Maximize both your web page window and DevTools windows.  Use the keyboard shortcut Alt+tab (Windows) or Cmd+~ (Mac) to switch between them quickly.
 
-6. Click the "Sources" tab of the DevTools panel, towards the top of the screen.
+6. Open up the "Sources" tab of the DevTools panel, towards the top of the screen.  That's for viewing JavaScript code.
 
    ![menu bar](docs/image-08.png)
 
-7. Without leaving the "Sources" outer tab, look at the navigator panel on the left.  This might be collapsed in the upper corner.  Regardless open the "Page" inner tab underneath it.
+7. Without leaving the "Sources" outer tab, look at the navigator panel on the left.  This might be collapsed in the upper corner.  Once it's there, open the "Page" inner tab underneath it.
 
    ![navigator](docs/image-09.png?)
 
@@ -88,17 +102,19 @@ That assumes that step 5's message said port 8000 - otherwise change the number 
 9. Press F1 to open settings, and choose "Default indentation: 2 spaces".  Close settings.
    * This is just so you won't be prevented from matching our formatting.
 
-These steps, and the following ones, may seem like a lot of work but they are part of becoming a real web developer with a good workflow, as opposed to someone who just knows the language.  The biggest key of all to becoming a good developer is actually going be mastering the **debugger** feature, but first for this assignment let's just take it slow and set up our editor.
+These steps, and the following ones, may seem like a lot of work but they are part of becoming a real web developer with a good workflow, as opposed to someone who just knows the JavaScript language.  The biggest key of all to becoming a good developer is actually going be mastering the **debugger** feature, but first let's set up our editor.
 
 
 ### Step 4:  Continue the next steps to begin modifying:
+
+So far we can read through the JavaScript files but we can't save edits to them (edits will be deleted upon refresh).  That is because we tricked Chrome with a fake web server (it doesn't even know where our files can be found on our real filesystem).  We have to tell it how to match up our fake "remote" files to our real files.  Chrome calls this setting up a "workspace".
 
 1. Change from the "Page" inner tab to the "Filesystem" inner tab, which might be collapsed behind the arrow.  This one should be empty.
 
    ![filesystem](docs/image-11.png)
 
-2. Drag and drop your local file folder from your computer's folder navigator straight into the middle of the DevTools window.  If you can't figure out how to drag between maximized windows (you can), just use the manual "add folder to workspace" button and choose your folder.
-Either way this will complete the mapping between your real local files and the fake ones over the network.
+2. Drag and drop your local file folder from your computer's folder navigator straight into the middle of the DevTools window.  Or, just use the manual "add folder to workspace" button and choose your folder.
+Either way this will complete the mapping to your real local files.
 
    ![copy](docs/image-12.png)
 
@@ -112,24 +128,24 @@ Either way this will complete the mapping between your real local files and the 
 
 3. Observe the little green dots next to each file in the "Filesystem" subtab.  These green dots verify that your Chrome has matched your fake server to your local files.
 
-4. Sometimes a green dot is missing -- especially on index.html.   That is dangerous; the file is not mapped right and any changes you make to it will be lost.  When green dots are missing, hit ctrl+F5 (Windows) or cmd+F5 (Mac) to do a hard refresh.  This re-loads them from your local files and re-maps them again.
+4. Sometimes a green dot is missing -- especially on index.html.   That is dangerous; the file might not be mapped right and could be out of date.  When green dots are missing, hit ctrl+F5 (Windows) or cmd+F5 (Mac) to do a hard refresh.  This re-loads them from your local files and re-maps them again.
 
    ![reload](docs/image-15.png)
 
-Be aware that for as long as you have DevTools open, back at browser window you have unlocked some new ways to refresh:  Right-click the refresh button to see them.
+Fun fact:  For as long as you have DevTools open, back at browser window you have unlocked some new ways to refresh!  Right-click the refresh button to see them.
 
-5. If the green dots still don't show up, delete what's in the workspace area and try again until they appear.
+5. If the green dots still don't show up, delete what's in the workspace area and try again until they appear.  You should also delete all your Chrome Workspaces when you finish an assignment.
 
 6. Now you can edit the files directly inside Chrome, in the DevTools "Sources" tab.
    * As long as you make changes under "Sources" and not "Elements", your changes will now persist in your own local files even after page refreshes.
    * You should avoid ever accidentally typing in the "Elements" tab.  That's only for temporary HTML stuff your code generates.
 
-Editing directly in Chrome like this is the workflow we will use.  One reason is that your code immediately changes its behavior as you type.  Even when it's in the middle of running, or as soon as you un-pause it in the debugger.  Elements will move around on the page immediately when you make changes.  This allows you to you dynamically test new code without re-starting your whole animation and losing your place -- without having to wait for your timed scenes to progress to that point again -- or without having to enter the right inputs again.
+Editing directly in Chrome like this is the workflow we will use.  One reason is that your code immediately changes its behavior as you type.  Even when it's in the middle of running, or as soon as you un-pause it in the debugger.  WebGL shapes will move around immediately when you make changes to the function that draws them.  This allows you to you dynamically test new code without re-starting your whole animation and losing your place -- without having to wait for your timed scenes to progress to that point again -- or without having to enter the right inputs again.
 
 
 ### Step 5:  Continue the next steps to begin using Chrome as a code editor:
 
-1. If you've never learned your way around an IDE for editing code, now is the time to.  Chrome's code editor is kind of in-between in terms of quality:  Better than Windows Notepad or TextEdit, but not quite as good as Notepad++ or Microsoft VSCode.  In order for it to be better than crudely opening your code in notepad, you need to know what basic features to expect from a text editor.  Let's learn them.
+1. In order for Chrome to be better than crudely opening your code in notepad, you need to know what basic features to expect from a text editor.  Let's learn them.
 
 2. Find and try each of the following code editing commands once. They're found in that DevTools Sources tab.
    * Block indent / unindent (Tab and Shift+Tab)
@@ -143,7 +159,7 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
    
      ![find and replace](docs/image-16.png)
      
-     ** For both of the above bullet points, note that you don't have to find specific or exact strings; Chrome supports matching **regular expressions**, for finding all text of a more general pattern.  That's the .* button.
+     ** "Find" works pretty good in Chrome's code editor.  You don't have to find specific or exact strings; Chrome supports matching **regular expressions**, for finding all text of a more general pattern.  That's the .* button.
 
 
 #### Step 6:  Continue the next steps to complete assignment 1:

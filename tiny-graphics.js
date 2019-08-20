@@ -24,6 +24,7 @@ export const tiny = {};
     // will all have to be garbage collected.
 
       // Examples:
+      
   //  ** For size 3 **   
   //     equals: "vec3( 1,0,0 ).equals( vec3( 1,0,0 ) )" returns true.
   //       plus: "vec3( 1,0,0 ).plus  ( vec3( 1,0,0 ) )" returns the Vector [ 2,0,0 ].
@@ -59,51 +60,80 @@ class Vector extends Float32Array
   static create( ...arr )
     { return new Vector( arr );
     }
-  copy        () { return new Vector( this )                              }
-  equals     (b) { return this.every( (x,i) => x == b[i]                ) }
-  plus       (b) { return this.map(   (x,i) => x +  b[i]                ) }
-  minus      (b) { return this.map(   (x,i) => x -  b[i]                ) }
-  times_pairwise (b) { return this.map(   (x,i) => x *  b[i]            ) }
-  scale_by   (s) { this.forEach(  (x, i, a) => a[i] *= s                ) }
-  times      (s) { return this.map(       x => s*x                      ) }
-  randomized (s) { return this.map(       x => x + s*(Math.random()-.5) ) }
-  mix     (b, s) { return this.map(   (x,i) => (1-s)*x + s*b[i]         ) }
-  norm        () { return Math.sqrt( this.dot( this )                   ) }
-  normalized  () { return this.times( 1/this.norm()                     ) }
-  normalize   () {        this.scale_by( 1/this.norm()                  ) }
+  copy() 
+    { return new Vector( this ) }
+  equals( b ) 
+    { return this.every( (x,i) => x == b[i] ) }
+  plus( b )
+    { return this.map(   (x,i) => x +  b[i] ) }
+  minus( b )
+    { return this.map(   (x,i) => x -  b[i] ) }
+  times_pairwise( b )
+    { return this.map(   (x,i) => x *  b[i] ) }
+  scale_by( s )
+    { this.forEach(  (x, i, a) => a[i] *= s ) }
+  times( s )
+    { return this.map(       x => s*x ) }
+  randomized( s )
+    { return this.map(       x => x + s*(Math.random()-.5) ) }
+  mix( b, s ) 
+    { return this.map(   (x,i) => (1-s)*x + s*b[i] ) }
+  norm()
+    { return Math.sqrt( this.dot( this ) ) }
+  normalized()
+    { return this.times( 1/this.norm() ) }
+  normalize()
+    {     this.scale_by( 1/this.norm() ) }
   dot(b)
     { if( this.length == 2 )                    // Optimize for Vectors of size 2
         return this[0]*b[0] + this[1]*b[1];  
       return this.reduce( ( acc, x, i ) => { return acc + x*b[i]; }, 0 );
-    }                                       
-  static cast( ...args ) { return args.map( x => Vector.from(x) ); } // For compact syntax when declaring lists.
-  to3()             { return vec3( this[0], this[1], this[2]              ); }
-  to4( is_a_point ) { return vec4( this[0], this[1], this[2], +is_a_point ); }
-  cross(b) { return vec3( this[1]*b[2] - this[2]*b[1], this[2]*b[0] - this[0]*b[2], this[0]*b[1] - this[1]*b[0] ); }
+    }              
+  static cast( ...args )
+                            // cast(): For compact syntax when declaring lists.      
+    { return args.map( x => Vector.from(x) ) }
+                // to3() / to4() / cross():  For standardizing the API with Vector3/Vector4, so
+                // the performance hit of changing between these types can be measured.
+  to3()
+    { return vec3( this[0], this[1], this[2]              ); }
+  to4( is_a_point )
+    { return vec4( this[0], this[1], this[2], +is_a_point ); }
+  cross(b)
+    { return vec3( this[1]*b[2] - this[2]*b[1], this[2]*b[0] - this[0]*b[2], this[0]*b[1] - this[1]*b[0] ); }
   to_string() { return "[vector " + this.join( ", " ) + "]" }
 }
 
 
 const Vector3 = tiny.Vector3 =
 class Vector3 extends Float32Array
-{                                 // **Vector3** is a specialization of Vector only for size 3.  Intended to perform faster.
-  static create( x,y,z )
+{                                 // **Vector3** is a specialization of Vector only for size 3, for performance reasons.
+  static create( x, y, z )
     { const v = new Vector3( 3 );
       v[0] = x; v[1] = y; v[2] = z;
       return v;
     }
-  copy() { return Vector3.from( this ) }
+  copy()
+    { return Vector3.from( this ) }
                                               // In-fix operations: Use these for more readable math expressions.
-  equals(b) { return this[0] == b[0] && this[1] == b[1] && this[2] == b[2] }
-  plus  (b) { return vec3( this[0]+b[0], this[1]+b[1], this[2]+b[2] ) }
-  minus (b) { return vec3( this[0]-b[0], this[1]-b[1], this[2]-b[2] ) }
-  times (s) { return vec3( this[0]*s,    this[1]*s,    this[2]*s    ) }
-  times_pairwise(b) { return vec3( this[0]*b[0], this[1]*b[1], this[2]*b[2] ) }
+  equals( b )
+    { return this[0] == b[0] && this[1] == b[1] && this[2] == b[2] }
+  plus( b )
+    { return vec3( this[0]+b[0], this[1]+b[1], this[2]+b[2] ) }
+  minus( b )
+    { return vec3( this[0]-b[0], this[1]-b[1], this[2]-b[2] ) }
+  times( s )
+    { return vec3( this[0]*s,    this[1]*s,    this[2]*s    ) }
+  times_pairwise( b )
+    { return vec3( this[0]*b[0], this[1]*b[1], this[2]*b[2] ) }
                                             // Pre-fix operations: Use these for better performance (to avoid new allocation).  
-  add_by    (b) { this[0] += s;  this[1] += s;  this[2] += s }
-  subtact_by(b) { this[0] -= s;  this[1] -= s;  this[2] -= s }
-  scale_by  (s) { this[0] *= s;  this[1] *= s;  this[2] *= s }
-  scale_pairwise_by(b) { this[0] *= b[0];  this[1] *= b[1];  this[2] *= b[2] }
+  add_by( b )
+    { this[0] += b[0];  this[1] += b[1];  this[2] += b[2] }
+  subtract_by( b )
+    { this[0] -= b[0];  this[1] -= b[1];  this[2] -= b[2] }
+  scale_by( s )
+    { this[0] *= s;  this[1] *= s;  this[2] *= s }
+  scale_pairwise_by( b )
+    { this[0] *= b[0];  this[1] *= b[1];  this[2] *= b[2] }
                                             // Other operations:  
   randomized( s )
     { return vec3( this[0]+s*(Math.random()-.5), 
@@ -115,7 +145,8 @@ class Vector3 extends Float32Array
                    (1-s)*this[1] + s*b[1],
                    (1-s)*this[2] + s*b[2] );
     }
-  norm() { return Math.sqrt( this[0]*this[0] + this[1]*this[1] + this[2]*this[2] ) }
+  norm()
+    { return Math.sqrt( this[0]*this[0] + this[1]*this[1] + this[2]*this[2] ) }
   normalized()
     { const d = 1/this.norm();
       return vec3( this[0]*d, this[1]*d, this[2]*d );
@@ -124,7 +155,8 @@ class Vector3 extends Float32Array
     { const d = 1/this.norm();
       this[0] *= d;  this[1] *= d;  this[2] *= d; 
     }
-  dot( b ) { return this[0]*b[0] + this[1]*b[1] + this[2]*b[2] }
+  dot( b )
+    { return this[0]*b[0] + this[1]*b[1] + this[2]*b[2] }
   cross( b )
     { return vec3( this[1]*b[2] - this[2]*b[1],
                    this[2]*b[0] - this[0]*b[2],
@@ -135,7 +167,7 @@ class Vector3 extends Float32Array
     }
   static unsafe( x,y,z )
     {                // unsafe(): returns vec3s only meant to be consumed immediately. Aliases into 
-                     // shared memory, to be overwritten upon next unsafe3 call.  Fast.
+                     // shared memory, to be overwritten upon next unsafe3 call.  Faster.
       const shared_memory = vec3( 0,0,0 );
       Vector3.unsafe = ( x,y,z ) =>
         { shared_memory[0] = x;  shared_memory[1] = y;  shared_memory[2] = z;
@@ -146,40 +178,79 @@ class Vector3 extends Float32Array
   to4( is_a_point )
                     // to4():  Convert to a homogeneous vector of 4 values.
     { return vec4( this[0], this[1], this[2], +is_a_point ) }
-  to_string() { return "[vec3 " + this.join( ", " ) + "]" }
+  to_string()
+    { return "[vec3 " + this.join( ", " ) + "]" }
 }
 
 const Vector4 = tiny.Vector4 =
-class Vector4 extends Vector3
-{                                 // **Vector4** is a specialization of Vector only for size 4.  Intended to perform faster.
-                                  // Homogeneous coordinates are assumed, so most functions just work upon
-                                  // the first three values.
-  static create( x,y,z,w )
+class Vector4 extends Float32Array
+{                                 // **Vector4** is a specialization of Vector only for size 4, for performance reasons.
+                                  // The fourth coordinate value is homogenized (0 for a vector, 1 for a point).
+  static create( x, y, z, w )
     { const v = new Vector4( 4 );
       v[0] = x; v[1] = y; v[2] = z; v[3] = w;
       return v;
     }
-  
-  plus  (b) { return vec4( this[0]+b[0], this[1]+b[1], this[2]+b[2], this[3]+b[3] ) }
-  minus (b) { return vec4( this[0]-b[0], this[1]-b[1], this[2]-b[2], this[3]+b[3] ) }
+  copy()
+    { return Vector4.from( this ) }
+                                            // In-fix operations: Use these for more readable math expressions.
+  equals()
+    { return this[0] == b[0] && this[1] == b[1] && this[2] == b[2] && this[3] == b[3] }
+  plus( b )
+    { return vec4( this[0]+b[0], this[1]+b[1], this[2]+b[2], this[3]+b[3] ) }
+  minus( b )
+    { return vec4( this[0]-b[0], this[1]-b[1], this[2]-b[2], this[3]-b[3] ) }
+  times( s )
+    { return vec4( this[0]*s, this[1]*s, this[2]*s, this[3]*s ) }
+  times_pairwise( b )
+    { return vec4( this[0]*b[0], this[1]*b[1], this[2]*b[2], this[3]*b[3] ) }
+                                            // Pre-fix operations: Use these for better performance (to avoid new allocation).  
+  add_by( b )
+    { this[0] += b[0];  this[1] += b[1];  this[2] += b[2];  this[3] += b[3] }
+  subtract_by( b )
+    { this[0] -= b[0];  this[1] -= b[1];  this[2] -= b[2];  this[3] -= b[3] }
+  scale_by( s )
+    { this[0] *= s;  this[1] *= s;  this[2] *= s;  this[3] *= s }
+  scale_pairwise_by( b )
+    { this[0] *= b[0];  this[1] *= b[1];  this[2] *= b[2];  this[3] *= b[3] }
+                                            // Other operations:  
+  randomized( s )
+    { return vec4( this[0]+s*(Math.random()-.5), 
+                   this[1]+s*(Math.random()-.5),
+                   this[2]+s*(Math.random()-.5),
+                   this[3]+s*(Math.random()-.5) );
+    }
   mix( b, s )
     { return vec4( (1-s)*this[0] + s*b[0],
                    (1-s)*this[1] + s*b[1],
                    (1-s)*this[2] + s*b[2], 
                    (1-s)*this[3] + s*b[3] );
     }
-  dot( b ) { return this[0]*b[0] + this[1]*b[1] + this[2]*b[2] + this[3]*b[3] }
-  copy() { return Vector4.from( this ) }
-  static unsafe( x,y,z,w )
+                // The norms should behave like for Vector3 because of the homogenous format.
+  norm()
+    { return Math.sqrt( this[0]*this[0] + this[1]*this[1] + this[2]*this[2] ) }
+  normalized()
+    { const d = 1/this.norm();
+      return vec4( this[0]*d, this[1]*d, this[2]*d, this[3] );    // (leaves the 4th coord alone)
+    }
+  normalize()
+    { const d = 1/this.norm();
+      this[0] *= d;  this[1] *= d;  this[2] *= d;                 // (leaves the 4th coord alone)
+    }
+  dot( b )
+    { return this[0]*b[0] + this[1]*b[1] + this[2]*b[2] + this[3]*b[3] }
+  static unsafe( x, y, z, w )
     {                // **unsafe** Returns vec3s to be used immediately only. Aliases into 
                      // shared memory to be overwritten on next unsafe3 call.  Faster.
-      const shared_memory = vec3( 0,0,0,0 );
+      const shared_memory = vec4( 0,0,0,0 );
       Vec4.unsafe = ( x,y,z,w ) =>
         { shared_memory[0] = x;  shared_memory[1] = y;
           shared_memory[2] = z;  shared_memory[3] = w; }
     }
-  to3() { return vec3( this[0], this[1], this[2] ) }
-  to_string() { return "[vec4 " + this.join( ", " ) + "]" }
+  to3()
+    { return vec3( this[0], this[1], this[2] ) }
+  to_string()
+    { return "[vec4 " + this.join( ", " ) + "]" }
 }
 
 const vec     = tiny.vec     = Vector .create;
@@ -187,17 +258,10 @@ const vec3    = tiny.vec3    = Vector3.create;
 const vec4    = tiny.vec4    = Vector4.create;
 const unsafe3 = tiny.unsafe3 = Vector3.unsafe;
 const unsafe4 = tiny.unsafe4 = Vector4.unsafe;
+
       // **Color** is just an alias for class Vector4.  Colors should be made as special 4x1
       // vectors expressed as ( red, green, blue, opacity ) each ranging from 0 to 1.
-const color   = tiny.color   = Vector4.create;
-
-
-// const vec     = tiny.vec     = Vector .create;
-// const vec3    = tiny.vec3    = Vector .create;
-// const vec4    = tiny.vec4    = Vector .create;
-// const unsafe3 = tiny.unsafe3 = Vector .create;
-// const unsafe4 = tiny.unsafe4 = Vector .create;
-
+const color = tiny.color = Vector4.create;
 
 const Matrix = tiny.Matrix =
 class Matrix extends Array                         
@@ -1047,7 +1111,6 @@ class Scene
     {}                            // show_explanation(): Called by Text_Widget for generating documentation.
 }
 
-
 const Canvas_Widget = tiny.Canvas_Widget =
 class Canvas_Widget
 {                           // **Canvas_Widget** embeds a WebGL demo onto a website in place of the given placeholder document
@@ -1055,36 +1118,218 @@ class Canvas_Widget
                             // arguments.  Optionally spawns a Text_Widget and Controls_Widget for showing more information
                             // or interactive UI buttons, divided into one panel per each loaded Scene.  You can use up to
                             // 16 Canvas_Widgets; browsers support up to 16 WebGL contexts per page.
-  constructor( element, initial_scenes, options )   
+  constructor( element, initial_scenes, options = {} )   
     { this.element = element;
-      Object.assign( this, { show_canvas: true, make_controls: true, show_explanation: true }, options )
+
+      const defaults = { show_canvas: true, make_controls: true, show_explanation: true, 
+                         make_editor: false, make_code_nav: true };
+      if( initial_scenes && initial_scenes[0] )
+        Object.assign( options, initial_scenes[0].widget_options );
+      Object.assign( this, defaults, options )
+      
       const rules = [ ".canvas-widget { width: 1080px; background: DimGray; margin:auto }",
                       ".canvas-widget canvas { width: 1080px; height: 600px; margin-bottom:-3px }" ];
                       
       if( document.styleSheets.length == 0 ) document.head.appendChild( document.createElement( "style" ) );
       for( const r of rules ) document.styleSheets[document.styleSheets.length - 1].insertRule( r, 0 )
 
-      this.embedded_explanation_area = this.element.appendChild( document.createElement( "div" ) );
-      this.embedded_explanation_area.className = "text-widget";
-      
+                              // Fill in the document elements:
+      if( this.show_explanation )
+      { this.embedded_explanation_area = this.element.appendChild( document.createElement( "div" ) );
+        this.embedded_explanation_area.className = "text-widget";
+      }
+
       const canvas = this.element.appendChild( document.createElement( "canvas" ) );
+
+      if( this.make_controls )
+      { this.embedded_controls_area    = this.element.appendChild( document.createElement( "div" ) );
+        this.embedded_controls_area.className = "controls-widget";
+      }
+
+      if( this.make_code_nav )
+      { this.embedded_code_nav_area    = this.element.appendChild( document.createElement( "div" ) );
+        this.embedded_code_nav_area.className = "code-widget";
+      }
+
+      if( this.make_editor )
+      { this.embedded_editor_area      = this.element.appendChild( document.createElement( "div" ) );
+        this.embedded_editor_area.className = "editor-widget";
+      }
+
       if( !this.show_canvas )
         canvas.style.display = "none";
 
       this.webgl_manager = new tiny.Webgl_Manager( canvas, color( 0,0,0,1 ) );  // Second parameter sets background color.
 
-      this.embedded_controls_area = this.element.appendChild( document.createElement( "div" ) );
-      this.embedded_controls_area.className = "controls-widget";
 
+                           // Add scenes and child widgets
       if( initial_scenes )
         this.webgl_manager.scenes.push( ...initial_scenes );
 
-      if( this.make_controls )
-        this.embedded_controls = new Controls_Widget( this.embedded_controls_area,    this.webgl_manager.scenes );
+      const primary_scene = initial_scenes ? initial_scenes[0] : undefined;
+      const additional_scenes = initial_scenes ? initial_scenes.slice(1) : [];
+      const primary_scene_definiton = primary_scene ? primary_scene.constructor : undefined;
       if( this.show_explanation )
         this.embedded_explanation  = new Text_Widget( this.embedded_explanation_area, this.webgl_manager.scenes, this.webgl_manager );
+      if( this.make_controls )
+        this.embedded_controls     = new Controls_Widget( this.embedded_controls_area, this.webgl_manager.scenes );
+      if( this.make_editor )
+        this.embedded_editor       = new Editor_Widget( this.embedded_editor_area, primary_scene_definiton, this );
+      if( this.make_code_nav )
+        this.embedded_code_nav     = new Code_Widget( this.embedded_code_nav_area, primary_scene_definiton, 
+                                     additional_scenes, { associated_editor: this.embedded_editor } );
 
                                        // Start WebGL initialization.  Note that render() will re-queue itself for continuous calls.
       this.webgl_manager.render();
+    }
+}
+
+const Code_Manager = tiny.Code_Manager =
+class Code_Manager                     
+{                                  // **Code_Manager** breaks up a string containing code (any ES6 JavaScript).  The RegEx being used
+                                   // to parse is from https://github.com/lydell/js-tokens which states the following limitation:
+                                   // "If the end of a statement looks like a regex literal (even if it isn’t), it will be treated
+                                   // as one."  (This can miscolor lines of code containing divisions and comments).
+  constructor( code )
+    { const es6_tokens_parser = RegExp( [
+        /((['"])(?:(?!\2|\\).|\\(?:\r\n|[\s\S]))*(\2)?|`(?:[^`\\$]|\\[\s\S]|\$(?!\{)|\$\{(?:[^{}]|\{[^}]*\}?)*\}?)*(`)?)/,    // Any string.
+        /(\/\/.*)|(\/\*(?:[^*]|\*(?!\/))*(\*\/)?)/,                                                                           // Any comment (2 forms).  And next, any regex:
+        /(\/(?!\*)(?:\[(?:(?![\]\\]).|\\.)*\]|(?![\/\]\\]).|\\.)+\/(?:(?!\s*(?:\b|[\u0080-\uFFFF$\\'"~({]|[+\-!](?!=)|\.?\d))|[gmiyu]{1,5}\b(?![\u0080-\uFFFF$\\]|\s*(?:[+\-*%&|^<>!=?({]|\/(?![\/*])))))/,
+        /(0[xX][\da-fA-F]+|0[oO][0-7]+|0[bB][01]+|(?:\d*\.\d+|\d+\.?)(?:[eE][+-]?\d+)?)/,                                     // Any number.
+        /((?!\d)(?:(?!\s)[$\w\u0080-\uFFFF]|\\u[\da-fA-F]{4}|\\u\{[\da-fA-F]+\})+)/,                                          // Any name.
+        /(--|\+\+|&&|\|\||=>|\.{3}|(?:[+\-\/%&|^]|\*{1,2}|<{1,2}|>{1,3}|!=?|={1,2})=?|[?~.,:;[\](){}])/,                      // Any punctuator.
+        /(\s+)|(^$|[\s\S])/                                                                                                   // Any whitespace. Lastly, blank/invalid.
+          ].map( r => r.source ).join('|'), 'g' );
+
+      this.tokens = [];    this.no_comments = [];    let single_token = null;
+      while( ( single_token = es6_tokens_parser.exec( code ) ) !== null )
+        { let token = { type: "invalid", value: single_token[0] }
+               if ( single_token[  1 ] ) token.type = "string" , token.closed = !!( single_token[3] || single_token[4] )
+          else if ( single_token[  5 ] ) token.type = "comment"
+          else if ( single_token[  6 ] ) token.type = "comment", token.closed = !!single_token[7]
+          else if ( single_token[  8 ] ) token.type = "regex"
+          else if ( single_token[  9 ] ) token.type = "number"
+          else if ( single_token[ 10 ] ) token.type = "name"
+          else if ( single_token[ 11 ] ) token.type = "punctuator"
+          else if ( single_token[ 12 ] ) token.type = "whitespace"        
+          this.tokens.push( token )
+          if( token.type != "whitespace" && token.type != "comment" ) this.no_comments.push( token.value );
+        }  
+    }
+}
+
+
+const Code_Widget = tiny.Code_Widget =
+class Code_Widget
+{                                         // **Code_Widget** draws a code navigator panel with inline links to the entire program source code.
+  constructor( element, main_scene, additional_scenes, options = {} )
+    { const rules = [ ".code-widget .code-panel { margin:auto; background:white; overflow:auto; font-family:monospace; width:1060px; padding:10px; padding-bottom:40px; max-height: 500px; \
+                                                      border-radius:12px; box-shadow: 20px 20px 90px 0px powderblue inset, 5px 5px 30px 0px blue inset }",
+                    ".code-widget .code-display { min-width:1200px; padding:10px; white-space:pre-wrap; background:transparent }",
+                    ".code-widget table { display:block; margin:auto; overflow-x:auto; width:1080px; border-radius:25px; border-collapse:collapse; border: 2px solid black }",
+                    ".code-widget table.class-list td { border-width:thin; background: #EEEEEE; padding:12px; font-family:monospace; border: 1px solid black }"
+                     ];
+
+      if( document.styleSheets.length == 0 ) document.head.appendChild( document.createElement( "style" ) );
+      for( const r of rules ) document.styleSheets[document.styleSheets.length - 1].insertRule( r, 0 )
+
+      this.associated_editor_widget = options.associated_editor;
+
+      if( !main_scene )
+        return;
+
+      import( './main-scene.js' )
+        .then( module => { 
+        
+          this.build_reader(      element, main_scene, additional_scenes, module.defs );
+          if( !options.hide_navigator )
+            this.build_navigator( element, main_scene, additional_scenes, module.defs );
+        } )
+    }
+  build_reader( element, main_scene, additional_scenes, definitions )
+    {                                           // (Internal helper function)      
+      this.definitions = definitions;
+      const code_panel = element.appendChild( document.createElement( "div" ) );
+      code_panel.className = "code-panel";
+//       const text        = code_panel.appendChild( document.createElement( "p" ) );
+//       text.textContent  = "Code for the above scene:";
+      this.code_display = code_panel.appendChild( document.createElement( "div" ) );
+      this.code_display.className = "code-display";
+                                                                            // Default textbox contents:
+      this.display_code( main_scene );
+    }
+  build_navigator( element, main_scene, additional_scenes, definitions )
+    {                                           // (Internal helper function)
+      const class_list = element.appendChild( document.createElement( "table" ) );
+      class_list.className = "class-list";   
+      const top_cell = class_list.insertRow( -1 ).insertCell( -1 );
+      top_cell.colSpan = 2;
+      top_cell.appendChild( document.createTextNode("Click below to navigate through all classes that are defined.") );
+      const content = top_cell.appendChild( document.createElement( "p" ) );
+      content.style = "text-align:center; margin:0; font-weight:bold";
+      content.innerHTML = "main-scene.js<br>Main Scene: ";
+      const main_scene_link = content.appendChild( document.createElement( "a" ) );
+      main_scene_link.href = "javascript:void(0);"
+      main_scene_link.addEventListener( 'click', () => this.display_code( main_scene ) );
+      main_scene_link.textContent = main_scene.name;
+
+      const second_cell = class_list.insertRow( -1 ).insertCell( -1 );
+      second_cell.colSpan = 2;
+      second_cell.style = "text-align:center; font-weight:bold";
+      const index_src_link = second_cell.appendChild( document.createElement( "a" ) );
+      index_src_link.href = "javascript:void(0);"
+      index_src_link.addEventListener( 'click', () => this.display_code() );
+      index_src_link.textContent = "This page's complete HTML source";
+
+      const third_row = class_list.insertRow( -1 );
+      third_row.style = "text-align:center";
+      third_row.innerHTML = "<td><b>tiny-graphics.js</b><br>(Always the same)</td> \
+                             <td><b>All other class definitions from dependencies:</td>";
+
+      const fourth_row = class_list.insertRow( -1 );
+                                                                            // Generate the navigator table of links:
+      for( let list of [ tiny, definitions ] )
+      { const cell = fourth_row.appendChild( document.createElement( "td" ) );
+                                              // List all class names except the main one, which we'll display separately:
+        const class_names = Object.keys( list ).filter( x => x != main_scene.name );
+        cell.style = "white-space:normal"
+        for( let name of class_names )
+        { const class_link = cell.appendChild( document.createElement( "a" ) );
+          class_link.style["margin-right"] = "80px"
+          class_link.href = "javascript:void(0);"
+          class_link.addEventListener( 'click', () => this.display_code( tiny[name] || definitions[name] ) );
+          class_link.textContent = name;
+          cell.appendChild( document.createTextNode(" ") );
+        }
+      }
+    }
+  display_code( class_to_display )
+    {                                           // display_code():  Populate the code textbox.
+                                                // Pass undefined to choose index.html source.
+      if( this.associated_editor_widget ) 
+        this.associated_editor_widget.select_class( class_to_display );
+      if( class_to_display ) this.format_code( class_to_display.toString() );
+      else fetch( document.location.href )
+                .then(   response => response.text() )
+                .then( pageSource => this.format_code( pageSource ) );
+    }
+  format_code( code_string )
+    {                                           // (Internal helper function)
+      this.code_display.innerHTML = "";
+      const color_map = { string: "chocolate", comment: "green", regex: "blue", number: "magenta", 
+                            name: "black", punctuator: "red", whitespace: "black" };
+
+      for( let t of new Code_Manager( code_string ).tokens )
+        if( t.type == "name" && [ ...Object.keys( tiny ), ...Object.keys( this.definitions ) ].includes( t.value ) )
+          { const link = this.code_display.appendChild( document.createElement( 'a' ) );
+            link.href = "javascript:void(0);"
+            link.addEventListener( 'click', () => this.display_code( tiny[t.value] || this.definitions[t.value] ) );
+            link.textContent = t.value;
+          }
+        else
+          { const span = this.code_display.appendChild( document.createElement( 'span' ) );
+            span.style.color = color_map[t.type];
+            span.textContent = t.value;
+          }
     }
 }
