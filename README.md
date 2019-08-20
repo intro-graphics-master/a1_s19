@@ -1,5 +1,7 @@
 # Assignment #1
 
+## Becoming a JavaScript Programmer who knows how to use DevTools
+
 ### Step 1:  Begin with these steps to repository setup:
 
 1. By now you have followed the link to create your assignment repository. Please use this link only once as it will create a repository on GitHub.com.  We will not check for submissions if you use it multiple times. The repository name should look like **a1-githubusername**. Any others will get removed.
@@ -24,7 +26,7 @@ $ git clone git@github.com:intro-graphics-master/a1-githubusername.git
 
 1. Go to your folder.
 
-   ![icons](docs/image-01.png?)
+   ![icons](docs/image-01.png)
 
 2. You should see the file index.html in your folder.  That's the executable.  If you have worked with HTML before, you might recall that simply double clicking .html files opens them in a web browser and sometimes displays a working document.  That won't work with this file, because our graphics programs will also depend on other files (JavaScript modules, image files, sound files, 3D models, etc.)  Your web browser protects your computer by refusing to look into your local file system, so we will have to trick it into thinking it is looking at a remote file system (a server) instead.
 
@@ -93,7 +95,7 @@ In reality, most professional JavaScript programmers right now use external text
 
 7. Without leaving the "Sources" outer tab, look at the navigator panel on the left.  This might be collapsed in the upper corner.  Once it's there, open the "Page" inner tab underneath it.
 
-   ![navigator](docs/image-09.png?)
+   ![navigator](docs/image-09.png)
 
 8. You should see all the files you downloaded from GitHub here.  Click them open to make sure you can see the code.  Now you can read it all here.
 
@@ -124,7 +126,7 @@ Either way this will complete the mapping to your real local files.
    
    * If this doesn't happen as described, try to find help on setting your local folder as a workspace.
 
-     ![url bar](docs/image-14.png?)
+     ![url bar](docs/image-14.png)
 
 3. Observe the little green dots next to each file in the "Filesystem" subtab.  These green dots verify that your Chrome has matched your fake server to your local files.
 
@@ -166,35 +168,34 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
 
 1. With our animation running in Chrome, with DevTools still open to the Sources tab.  Open the file "main-scene.js".  This is under the "Filesystem" tab of the navigator panel, which might be collapsed in the upper corner.
 
-   ![code](docs/image-17.png?)
+   ![code](docs/image-17.png)
 
 2. If there's no green dot next to  "main-scene.js", fix it as described above.
 
 3. The code is divided up into JavaScript classes.  The one at the top of the file constructs the geometry of a triangle.  Let's edit it to become a square.
 
-   ![code](docs/image-18.png?a)
+   ![code](docs/image-18.png)
 
-4. On line 14, add the following three items to the JavaScript array, which is all the text enclosed by square brackets [ ].  Add a comma to separate from previous items in the array.
-   * Vec.of(0,1,0), Vec.of(1,0,0), Vec.of(1,1,0)
+4. On line 17, add the following three items to that line's JavaScript array, which is all the text enclosed by square brackets [ ].  Add a comma to separate from previous items in the array.
+   * vec3(0,1,0), vec3(1,0,0), vec3(1,1,0)
 
-5. On line 15, add the following three items to the JavaScript array:
-   * Color.of(0,0,1,1), Color.of(0,1,0,1), Color.of(1,1,0,1)
+5. On line 18, add the following three items to the JavaScript array:
+   * color(0,0,1,1), color(0,1,0,1), color(1,1,0,1)
 
-6. Save the file (Ctrl+s or Cmd+s), verify the asterisk next to your filename for unsaved changes goes away, and reload the page (using Ctrl+Shift+r for Windows, Cmd+Shift+r for Mac).  Switch back to look at your web page window.  The triangle should be a square now, because you just attached a second triangle to it.  If so, your edit worked and your file is saved.  If not, check for green dots and fix it as per above.
+6. Save the file (Ctrl+s or Cmd+s), verify the asterisk next to your filename for unsaved changes goes away, and reload the page.  Make it a hard reload (using Ctrl+Shift+r for Windows, Cmd+Shift+r for Mac) to clear out the cache, just in case the page tries to cache an older version of the file we edited.  Switch back to look at your web page window.  The triangle should be a square now, because you just attached a second triangle to it.  If so, your edit worked and your file is saved.  If not, check for green dots and fix it as per above.
 
    ![square](docs/image-19.png)
 
-7. If you typed the wrong thing, you could get console errors, a blank web page, or missing triangles.  Later on we'll show you how to use the debugger and the console together to approach errors in a smart way.  For now, just type it right.
+7. If you typed the wrong thing, you could get console errors, a blank web page, or missing triangles.  In the appendix below we'll show you how to use the debugger and the console together to approach errors in a smart way.  For now, just type it right.
 
 8. Your files should be ready to turn in now, including your trivial change.
 
-9. Be looking for our supplement to this assignment, which explains how to start using everything you've set up as a code debugger.  That will be the whole point of using Chrome as our environment!
 
 #### Step 7:  Continue the next steps to turn in assignment 1 on CCLE:
 
 (10 points)
 
-1.  Zip up all your files (except for the "docs" folder, please leave that out) in a single .zip file, which you will name after your student UID.  Turn in your .zip on CCLE, where we will add a place to do so.
+1.  Zip up all your files (except for the "docs" folder, and hidden ".git" folder) in a single .zip file, which you will name after your student UID.  Turn in your .zip on CCLE, where we will add a place to do so.  Always keep your .zip files small for us; please do not select the (sometimes huge) .git folder for inclusion in it!
 
 #### Step 8 (Extra credit):  Continue the next steps to turn in assignment 1 on GitHub:
 
@@ -202,8 +203,6 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
 
 1. This bonus step requires that you actually got GitHub Desktop (or just plain git) set up correctly to talk to your local files.  Do that.  Use the instructions provided by GitHub for setting up GitHub Desktop, and use Google for any help.
 
-2. Important:  In order for us to notice that you did this, you must mark the files you turned in on CCLE in step 7.  Otherwise we will not know to check your GitHub.  So, if you do the extra credit, please leave an extra file called "github.txt" in the root of your .zip folder, and the contents of your text file should be your GitHub username.  Do this part exactly right, and include it in the turned in files on CCLE.  Then we will know to check your GitHub.
-
-3. Once you have made the minor edit to your local files (from the steps above), all you have left to do is push them back to the GitHub repo you made in step 1.  This is easy using GitHub Desktop's interface.  Visit your repo page online (accessible from the GitHub Desktop menus) and check the file contents to verify that your edit is there.
+2. Once you have made the minor edit to your local files (from the steps above), all you have left to do is push them back to the GitHub repo you made in step 1.  This is easy using GitHub Desktop's interface.  Remember that commiting your local files is not enough; you must also push them.  Visit your repo page online (accessible from the GitHub Desktop menus) and check the file contents to verify that your edit is there.
 
 In case you decide you want to use plain git instead on the command line, here are instructions for that too: https://pastebin.com/YQimN4Mn
