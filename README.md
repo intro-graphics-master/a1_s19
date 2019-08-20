@@ -205,7 +205,7 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
 
 1.  Zip up all your files (except for the "docs" folder, and hidden ".git" folder) in a single .zip file, which you will name after your student UID.  Turn in your .zip on CCLE, where we will add a place to do so.  Always keep your .zip files small for us; please do not select the (sometimes huge) .git folder for inclusion in it!
 
-Remember to visit Appendix 2 below (using a debugger) to complete this tutorial!  Only then can you get the full value out of using DevTools, like real JavaScript developers do.
+Remember to visit [Appendix 2 (using a debugger)](https://docs.google.com/document/d/e/2PACX-1vSi14Mb-_6qLN7wVA4-4NxqYR-3qHLy7ndjB2G0Ba6TCYHn_KGmrPbu-fCDtHkv9QcGBNqLUUdT6fu1/pub) to complete this tutorial!  Only then can you get the full value out of using DevTools, like real JavaScript developers do.
 
 #### Step 8 (Extra credit):  Continue the next steps to turn in assignment 1 on GitHub:
 
