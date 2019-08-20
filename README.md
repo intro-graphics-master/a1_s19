@@ -14,7 +14,7 @@
 
 * The medium way:  (extra credit) Click that green button on your repo and select "Open in Desktop".  Let it download the program "GitHub Desktop" for you if you don't already have it, and then the "Open in Desktop" button should open in that program.
 
-   *If it works, this entire repo will be copied to a folder on your computer in a way that Git can manage.  The extra credit section at the bottom of this assignment will assume that you've done this part.
+   * If it works, this entire repo will be copied to a folder on your computer in a way that Git can manage.  The extra credit section at the bottom of this assignment will assume that you've done this part.
 
    * Git is a software version control tool that comes from the linux world. It is primarily a command line tool, but GitHub Desktop provides a nice visual experience for it.  If you have trouble setting up GitHub Desktop, [Professor Friedman's tutorial on it](https://docs.google.com/document/d/e/2PACX-1vQB9LOnRJ5MdhIClifZwsT9UmFmz3EpP0AsI1oEjJ7gqshA7nqbEsUtzgRqyoFAbCBUzoe0lLtEelMD/pub) might help.
 
