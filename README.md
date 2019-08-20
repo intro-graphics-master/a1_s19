@@ -77,10 +77,10 @@ In reality, most professional JavaScript programmers right now use external text
 
 2. Resume with the open Chrome window from the previous step 8.
 
-   ![triangle code](docs/image-06.png)
-
 3. Press F12 (Windows) or Cmd+Option+i (Mac) to open the Chrome developer tools panel (DevTools).
 
+   ![triangle code](docs/image-06.png)
+   
 4. You want DevTools to be able to take up the whole screen.  Undock it from your web page window.  Do this by clicking the ellipsis at the upper right corner, and selecting the first choice under "Dock Side".
 
    ![triangle code 2](docs/image-07.png)
@@ -159,7 +159,7 @@ Editing directly in Chrome like this is the workflow we will use.  One reason is
    
      ![find and replace](docs/image-16.png)
      
-     ** "Find" works pretty good in Chrome's code editor.  You don't have to find specific or exact strings; Chrome supports matching **regular expressions**, for finding all text of a more general pattern.  That's the .* button.
+      * "Find" works pretty good in Chrome's code editor.  You don't have to find specific or exact strings; Chrome supports matching **regular expressions**, for finding all text of a more general pattern.  That's the .* button.
 
 
 #### Step 6:  Continue the next steps to complete assignment 1:
