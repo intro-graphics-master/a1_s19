@@ -144,7 +144,7 @@ Either way this will complete the mapping to your real local files.
 
 Fun fact:  For as long as you have DevTools open, back at browser window you have unlocked some new ways to refresh!  Right-click the refresh button to see them.
 
-5. If the green dots still don't show up, delete what's in the workspace area and try again until they appear.  You should also delete all your Chrome Workspaces when you finish an assignment.
+5. If the green dots still don't show up, delete what's in the workspace area and try again until they appear.  You should also delete all your Chrome Workspaces when you finish an assignment.  That way when your next assignment comes, Chrome won't accidentally still remember the mapping to these files, and fail to notice the new files, causing edits to your next assignment to seemingly disappear!
 
 6. Now you can edit the files directly inside Chrome, in the DevTools "Sources" tab.
    * As long as you make changes under "Sources" and not "Elements", your changes will now persist in your own local files even after page refreshes.
